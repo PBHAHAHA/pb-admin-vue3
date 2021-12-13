@@ -6,26 +6,18 @@
       </div>
       <el-form-item>
         <span class="svg-container">
-          <el-icon>
-            <Avatar />
-          </el-icon>
+          <svg-icon icon="role" />
         </span>
         <el-input placeholder="用户名" name="username" type="text"></el-input>
       </el-form-item>
       <el-form-item>
         <span class="svg-container">
-          <el-icon>
-            <Avatar />
-          </el-icon>
+          <svg-icon icon="password"> </svg-icon>
         </span>
-        <el-input
-          placeholder="用户名"
-          name="password"
-          type="password"
-        ></el-input>
+        <el-input placeholder="密码" name="password" type="password"></el-input>
         <span class="show-pwd">
           <el-icon>
-            <Avatar />
+            <svg-icon icon="eye"> </svg-icon>
           </el-icon>
         </span>
       </el-form-item>
@@ -38,7 +30,6 @@
 </template>
 
 <script setup>
-import { Avatar } from '@element-plus/icons'
 import {} from 'vue'
 </script>
 
