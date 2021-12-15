@@ -91,7 +91,7 @@ const loginFunc = () => {
   loginFormRef.value.validate((valid) => {
     if (!valid) return
     loading.value = true
-    console.log(store)
+    console.log(store.dispatch)
     store
       .dispatch('user/login', loginForm.value)
       .then(() => {
