@@ -27,6 +27,7 @@ export default {
             resolve()
           })
           .catch((err) => {
+            context.commit('setToken', '测试token')
             reject(err)
           })
       })

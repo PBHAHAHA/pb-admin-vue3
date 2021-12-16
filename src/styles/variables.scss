@@ -1,0 +1,11 @@
+// 定义常量并导出
+$menuText: #1890ff;
+$sidebarWidth: 200px;
+$navbarHeight: 60px; // 顶部navbar的高度
+$navbarMarginBottom: 18px; //顶部header距离下方的距离
+
+// JS与css共享变量 在scss中通过 :export 导出，在JS中可以通过ESM进行导入
+:export {
+  menuText: $menuText;
+  sidebarWidth: $sidebarWidth;
+}

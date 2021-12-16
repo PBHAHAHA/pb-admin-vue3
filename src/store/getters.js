@@ -1,7 +1,7 @@
 //
 const getters = {
   token: (state) => {
-    console.log('state.user.token')
+    console.log(state.user.token)
     return state.user.token
   }
 }

@@ -1,0 +1,31 @@
+#app {
+  .main-container {
+    // box-sizing: border-box;
+    height: calc(
+      100% - $navbarHeight - $navbarMarginBottom - $navbarMarginBottom
+    );
+    transition: margin-left 0.28s;
+    position: relative;
+    top: $navbarHeight;
+    margin: 18px 0;
+    .appmain-container {
+      background-color: #fff;
+      margin-left: calc($sidebarWidth + $navbarMarginBottom);
+      margin-right: $navbarMarginBottom;
+    }
+  }
+
+  .sidebar-container {
+    background-color: #fff;
+    transition: width 0.28s;
+    width: $sidebarWidth !important;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    overflow: auto;
+    @include scrollBar;
+  }
+}
