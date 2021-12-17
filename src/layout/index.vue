@@ -31,7 +31,6 @@ import {} from 'vue'
 }
 .fixed-header {
   position: fixed;
-  height: $navbarHeight;
   top: 0;
   right: 0;
   z-index: 9;

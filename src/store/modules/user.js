@@ -1,3 +1,4 @@
+// import { login, getUserInfo } from '@/api/sys'
 import { login } from '@/api/sys'
 import md5 from 'md5'
 import { setItem, getItem } from '@/utils/storage'
@@ -6,12 +7,17 @@ import { TOKEN } from '@/constant'
 export default {
   namespaced: true,
   state: () => ({
-    token: getItem(TOKEN) || ''
+    token: getItem(TOKEN) || '',
+    userInfo: {}
   }),
   mutations: {
     setToken(state, token) {
       state.token = token
       setItem(TOKEN, token)
+    },
+    setUserInfo(state, userInfo) {
+      console.log(userInfo)
+      state.userInfo = userInfo
     }
   },
   actions: {
@@ -30,6 +36,13 @@ export default {
             context.commit('setToken', '测试token')
             reject(err)
           })
+      })
+    },
+    async getUserInfo(context) {
+      // const res = await getUserInfo()
+      context.commit('setUserInfo', {
+        name: '购商云汇',
+        userid: 'ceshi123'
       })
     }
   }
