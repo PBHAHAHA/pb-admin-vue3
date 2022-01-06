@@ -31,6 +31,7 @@ const publicRoutes = [
   {
     path: '/',
     component: layout,
+    redirect: '/order/all',
     children: [
       // 404 401
       {

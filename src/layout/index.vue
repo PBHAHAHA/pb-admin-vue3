@@ -28,6 +28,8 @@ import {} from 'vue'
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  .appmain-container {
+  }
 }
 .fixed-header {
   position: fixed;

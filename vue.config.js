@@ -7,7 +7,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://api.admin.lgdsunday.club',
+        target: 'https://127.0.0.1:7001',
         changeOrigin: true
       }
     }
