@@ -1,11 +1,6 @@
 <template>
   <div class="login-wrapper">
-    <el-form
-      class="login-form"
-      ref="loginFormRef"
-      :model="loginForm"
-      :rules="loginRules"
-    >
+    <el-form class="login-form" ref="loginFormRef" :model="loginForm" :rules="loginRules">
       <div class="title-container">
         <h3 class="title">用户登录</h3>
       </div>
@@ -13,16 +8,11 @@
         <span class="svg-container">
           <svg-icon icon="role" />
         </span>
-        <el-input
-          placeholder="用户名"
-          v-model="loginForm.username"
-          name="username"
-          type="text"
-        ></el-input>
+        <el-input placeholder="用户名" v-model="loginForm.username" name="username" type="text"></el-input>
       </el-form-item>
       <el-form-item prop="password">
         <span class="svg-container">
-          <svg-icon icon="password"> </svg-icon>
+          <svg-icon icon="password"></svg-icon>
         </span>
         <el-input
           placeholder="密码"
@@ -32,29 +22,29 @@
         ></el-input>
         <span class="show-pwd">
           <el-icon class="svg-container" @click="onChangePwdType">
-            <svg-icon :icon="passwordType === 'password' ? 'eye' : 'eye-open'">
-            </svg-icon>
+            <svg-icon :icon="passwordType === 'password' ? 'eye' : 'eye-open'"></svg-icon>
           </el-icon>
         </span>
       </el-form-item>
-
       <el-button
         @click="loginFunc"
         :loading="loading"
         type="primary"
         style="width: 100%; margin-bottom: 30px"
-        >登录</el-button
-      >
+      >登录</el-button>
     </el-form>
   </div>
 </template>
 
 <script setup>
 import { validatePassword } from './rules'
-import { ref } from 'vue'
+
+import { inject, ref } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter, useRoute } from 'vue-router'
+const $message = inject('$message')
 const loginForm = ref({
-  username: 'super-admin',
+  username: 'pb',
   password: '123456'
 })
 const loginRules = ref({
@@ -86,6 +76,8 @@ const onChangePwdType = () => {
 
 const loading = ref(false)
 const store = useStore()
+const router = useRouter()
+const route = useRoute()
 const loginFormRef = ref(null)
 const loginFunc = () => {
   loginFormRef.value.validate((valid) => {
@@ -95,7 +87,13 @@ const loginFunc = () => {
     store
       .dispatch('user/login', loginForm.value)
       .then(() => {
+        $message.success('登录成功~')
+        console.log(route)
+        console.log(router)
         loading.value = false
+        router.push({
+          path: '/'
+        })
       })
       .catch((err) => {
         console.log(err)

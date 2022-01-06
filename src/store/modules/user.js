@@ -1,6 +1,6 @@
 // import { login, getUserInfo } from '@/api/sys'
 import { login } from '@/api/sys'
-import md5 from 'md5'
+// import md5 from 'md5'
 import { setItem, getItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
 
@@ -26,14 +26,16 @@ export default {
       return new Promise((resolve, reject) => {
         login({
           username,
-          password: md5(password)
+          password
         })
-          .then((data) => {
-            context.commit('setToken', '测试token')
+          .then((res) => {
+            console.log(res)
+            context.commit('setToken', res.data.token)
+
             resolve()
           })
           .catch((err) => {
-            context.commit('setToken', '测试token')
+            // context.commit('setToken', '测试token')
             reject(err)
           })
       })

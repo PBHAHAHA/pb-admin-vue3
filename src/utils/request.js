@@ -4,7 +4,10 @@ import store from '@/store'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
-  timeout: 5000
+  timeout: 5000,
+  headers: {
+    'Content-Type': 'application/json'
+  }
 })
 
 service.interceptors.request.use(
@@ -21,10 +24,11 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   (response) => {
-    const { success, message, data } = response.data
+    console.log(response)
+    const { code, message } = response.data
     // 需要判断当前请求是否成功
-    if (success) {
-      return data
+    if (code === 200) {
+      return response.data
     } else {
       // 成功返回解析后得数据
       ElMessage.error(message)
