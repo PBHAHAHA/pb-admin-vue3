@@ -12,6 +12,11 @@ const service = axios.create({
 
 service.interceptors.request.use(
   (config) => {
+    console.log(config)
+
+    config.headers.post['Content-Type'] =
+      'application/x-www-form-urlencoded;charset=UTF-8'
+    console.log(store.getters.token)
     if (store.getters.token) {
       config.headers.Authorization = `Bearer ${store.getters.token}`
     }

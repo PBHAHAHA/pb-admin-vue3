@@ -15,3 +15,11 @@ export const getUserInfo = () => {
     method: 'POST'
   })
 }
+
+// 发布文章
+export const addArticle = () => {
+  return request({
+    url: '/article/add',
+    method: 'POST'
+  })
+}
