@@ -17,9 +17,10 @@ export const getUserInfo = () => {
 }
 
 // 发布文章
-export const addArticle = () => {
+export const addArticle = (data) => {
   return request({
     url: '/article/add',
-    method: 'POST'
+    method: 'POST',
+    data
   })
 }

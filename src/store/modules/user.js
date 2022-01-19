@@ -23,6 +23,7 @@ export default {
   actions: {
     login(context, userInfo) {
       const { username, password } = userInfo
+      console.log(userInfo)
       return new Promise((resolve, reject) => {
         login({
           username,
@@ -30,12 +31,13 @@ export default {
         })
           .then((res) => {
             console.log(res)
-            context.commit('setToken', res.data.token)
-
+            if (res.data.token) {
+              context.commit('setToken', res.data.token)
+            }
             resolve()
           })
           .catch((err) => {
-            // context.commit('setToken', '测试token')
+            console.log(err)
             reject(err)
           })
       })

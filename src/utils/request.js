@@ -18,7 +18,7 @@ service.interceptors.request.use(
       'application/x-www-form-urlencoded;charset=UTF-8'
     console.log(store.getters.token)
     if (store.getters.token) {
-      config.headers.Authorization = `Bearer ${store.getters.token}`
+      config.headers.Authorization = `${store.getters.token}`
     }
     return config
   },
@@ -30,14 +30,14 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response) => {
     console.log(response)
-    const { code, message } = response.data
+    const { code, msg } = response.data
     // 需要判断当前请求是否成功
     if (code === 200) {
       return response.data
     } else {
       // 成功返回解析后得数据
-      ElMessage.error(message)
-      return Promise.reject(new Error(message))
+      ElMessage.error(msg)
+      return Promise.reject(new Error(msg))
     }
   },
   (error) => {
