@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 import store from '@/store'
+import router from '@/router'
+import { removeItem } from './storage'
+import { TOKEN } from '@/constant'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
@@ -34,6 +37,11 @@ service.interceptors.response.use(
     // 需要判断当前请求是否成功
     if (code === 200) {
       return response.data
+    } else if (code === 401) {
+      removeItem(TOKEN)
+      router.push({
+        path: '/login'
+      })
     } else {
       // 成功返回解析后得数据
       ElMessage.error(msg)

@@ -13,6 +13,8 @@
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "element-plus": "^1.0.2-beta.28",
+    "highlight.js": "^11.4.0",
+    "marked": "^4.0.10",
     "md-editor-v3": "^1.9.2",
     "md5": "^2.3.0",
     "vue": "^3.2.8",

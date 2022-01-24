@@ -18,6 +18,14 @@ const privateRoutes = [
           title: '全部订单',
           icon: ''
         }
+      },
+      {
+        path: '/article/detail',
+        name: 'articleDetail',
+        component: () => import('@/views/article/article-detail.vue'),
+        meta: {
+          title: '文章详情'
+        }
       }
     ]
   }

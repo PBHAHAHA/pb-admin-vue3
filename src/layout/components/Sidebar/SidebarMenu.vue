@@ -3,9 +3,9 @@
     <el-submenu index="/">
       <template #title>
         <i class="el-icon-location"></i>
-        <span>订单管理 </span>
+        <span>文章管理 </span>
       </template>
-      <el-menu-item route="/" index="/">全部订单</el-menu-item>
+      <el-menu-item route="/" index="/">添加文章</el-menu-item>
     </el-submenu>
     <el-submenu index="2">
       <template #title>

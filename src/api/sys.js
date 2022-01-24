@@ -24,3 +24,11 @@ export const addArticle = (data) => {
     data
   })
 }
+// 获取文章详情
+export const getArticleDetail = (data) => {
+  return request({
+    url: '/article/detail',
+    method: 'POST',
+    data
+  })
+}
